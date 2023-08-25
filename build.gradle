@@ -26,12 +26,12 @@ version = "${minecraft_version}-${mod_version}"
 group = 'top.leonx.irisflw' // http://maven.apache.org/guides/mini/guide-naming-conventions.html
 archivesBaseName = "${project.archives_base_name}"
 
-// Mojang ships Java 17 to end users in 1.18+, so your mod should target Java 17.
-java.toolchain.languageVersion = JavaLanguageVersion.of(17)
+// Mojang ships Java 8 to end users in 1.12+, so your mod should target Java 8.
+java.toolchain.languageVersion = JavaLanguageVersion.of(8)
 
 println "Java: ${System.getProperty 'java.version'}, JVM: ${System.getProperty 'java.vm.version'} (${System.getProperty 'java.vendor'}), Arch: ${System.getProperty 'os.arch'}"
 minecraft {
-    mappings channel: 'official', version: '1.18.2'
+    mappings channel: 'official', version: '1.16.5'
 
     accessTransformer = file('src/main/resources/META-INF/accesstransformer.cfg') // Currently, this location cannot be changed from the default.
 
@@ -151,12 +151,12 @@ repositories {
 }
 
 dependencies {
-    minecraft 'net.minecraftforge:forge:1.18.2-40.1.0'
+    minecraft 'net.minecraftforge:forge:1.16.5-36.2.39'
 
     // Apply Mixin AP
     annotationProcessor 'org.spongepowered:mixin:0.8.5:processor'
 
-    implementation fg.deobf("maven.modrinth:rubidium:0.5.3a")
+    implementation fg.deobf("maven.modrinth:rubidium:0.2.12")
 
     implementation fg.deobf("maven.modrinth:oculus:${iris_version}")
 
